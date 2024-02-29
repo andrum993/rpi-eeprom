@@ -1,4 +1,19 @@
-# Raspberry Pi4 bootloader EEPROM release notes
+# Raspberry Pi4 bootloader release notes
+
+## 2024-02-29 - Rebuild 2711 bootloader from common 2711/2712 common branch - LATEST
+Rebuild the 2711 bootloader from the common 2711/2712 branch to catchup
+with changes in common code.
+
+This initial release is likely to have some regressions compared to the 2024-01-22 release.
+
+This release cannot be used with secure-boot because it is not signed with the
+2711 boot ROM secure-boot key.
+
+   * recovery.bin - Add recovery_reboot=1 to config.txt in rpiboot mode
+     to reboot after the flash update has finished.
+   * Add support for [tryboot] conditional filter in the bootloader config.
+     Not supported on Pi4 revision 1.3 or older.
+   * Assorted FAT & LFN fixes.
 
 ## 2024-01-22 - Fix issue boot.img end sector check - STABLE
    * See https://github.com/raspberrypi/rpi-eeprom/issues/521
